@@ -175,3 +175,4 @@ cython_debug/
 
 # Custom
 /asl_videos
+/landmark_data
