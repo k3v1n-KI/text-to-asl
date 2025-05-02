@@ -24,7 +24,7 @@ def extract_audio_and_transcribe(video_path):
     transcript = [(seg['start'], seg['end'], seg['text']) for seg in result['segments']]
     return transcript
 
-def restore_audio(silent_video_path, video_with_audio_path):
+def restore_audio(silent_video_path, video_with_audio_path, new_video_file_name):
     # 1) load the overlaid silent video
     video = VideoFileClip(silent_video_path)
 
@@ -34,7 +34,7 @@ def restore_audio(silent_video_path, video_with_audio_path):
     new_audioclip = CompositeAudioClip([audio])
     video.audio = new_audioclip
 
-    video.write_videofile("comparison_overlay_final.mp4")
+    video.write_videofile(new_video_file_name)
     print("New video file created!")
 
 
